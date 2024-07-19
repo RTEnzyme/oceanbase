@@ -74,11 +74,11 @@ int ObStmtExprReplacer::add_replace_exprs(const ObIArray<ObRawExpr *> &from_expr
 {
   int ret = OB_SUCCESS;
   if (OB_FAIL(replacer_.add_replace_exprs(from_exprs, to_exprs))) {
-    LOG_WARN("failed to add replace exprs", K(ret));
+    LOG_INFO("masd failed to add replace exprs", K(ret));
   } else if (NULL != skip_exprs) {
     for (int64_t i = 0; OB_SUCC(ret) && i < skip_exprs->count(); ++i) {
       if (OB_FAIL(add_skip_expr(skip_exprs->at(i)))) {
-        LOG_WARN("failed to add skip expr", K(ret));
+        LOG_INFO("masd failed to add skip expr", K(ret));
       }
     }
   }

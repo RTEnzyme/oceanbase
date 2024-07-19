@@ -304,7 +304,7 @@ int ObTransformTempTable::check_stmt_can_materialize(ObSelectStmt *stmt, bool is
       bool can_use_fast_min_max = false;
       STOP_OPT_TRACE;
       if (OB_FAIL(ObTransformMinMax::check_transform_validity(*ctx_, stmt, can_use_fast_min_max))) {
-        LOG_WARN("failed to check fast min max", K(ret));
+        LOG_INFO("failed to check fast min max", K(ret));
       }
       RESUME_OPT_TRACE;
       if (OB_FAIL(ret)) {

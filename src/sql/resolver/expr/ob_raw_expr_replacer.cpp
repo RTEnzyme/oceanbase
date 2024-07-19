@@ -372,13 +372,13 @@ int ObRawExprReplacer::add_replace_exprs(const ObIArray<ObRawExpr *> &from_exprs
   int ret = OB_SUCCESS;
   if (OB_UNLIKELY(from_exprs.count() != to_exprs.count())) {
     ret = OB_ERR_UNEXPECTED;
-    LOG_WARN("expr size mismatch", K(from_exprs.count()), K(to_exprs.count()), K(ret));
+    LOG_INFO("masd expr size mismatch", K(from_exprs.count()), K(to_exprs.count()), K(ret));
   } else if (OB_FAIL(try_init_expr_map(from_exprs.count()))) {
-    LOG_WARN("failed to init expr map", K(ret));
+    LOG_INFO("masd failed to init expr map", K(ret));
   }
   for (int64_t i = 0; OB_SUCC(ret) && i < from_exprs.count(); ++i) {
     if (OB_FAIL(add_replace_expr(from_exprs.at(i), to_exprs.at(i)))) {
-      LOG_WARN("failed to add replace expr", K(ret));
+      LOG_INFO("masd failed to add replace expr", K(ret));
     }
   }
   return ret;

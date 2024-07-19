@@ -809,9 +809,9 @@ int ObDMLStmt::replace_relation_exprs(const common::ObIArray<ObRawExpr *> &other
   replacer.set_relation_scope();
   replacer.set_recursive(false);
   if (OB_FAIL(replacer.add_replace_exprs(other_exprs, new_exprs))) {
-    LOG_WARN("failed to add replace exprs", K(ret));
+    LOG_INFO("masd failed to add replace exprs", K(ret));
   } else if (OB_FAIL(iterate_stmt_expr(replacer))) {
-    LOG_WARN("failed to iterate stmt expr", K(ret));
+    LOG_INFO("masd failed to iterate stmt expr", K(ret));
   }
   return ret;
 }

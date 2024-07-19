@@ -479,6 +479,7 @@ int ObTransformerImpl::choose_rewrite_rules(ObDMLStmt *stmt, uint64_t &need_type
     }
     need_types = ObTransformRule::ALL_TRANSFORM_RULES & (~disable_list);
   }
+  LOG_INFO("masd is enable: ", K(need_types & (1L << FASTMINMAX)));
   return ret;
 }
 
